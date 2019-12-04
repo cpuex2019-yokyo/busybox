@@ -1,0 +1,4 @@
+::sysinit:/etc/init.d/rcS
+::shutdown:/bin/umount -a -r
+ttyS0::respawn:/sbin/getty 115200 ttyS0
+::respawn:/sbin/klogd -n
