@@ -14,7 +14,7 @@ ROOT_PASSWORD=uouo
 # prepare rootfs image
 rm -f ${IMAGE_PATH=}
 dd if=/dev/zero of=${IMAGE_PATH} bs=1M count=300
-/sbin/mkfs.ext4 -j -F ${IMAGE_PATH}
+/sbin/mkfs.ext2 -j -F ${IMAGE_PATH}
 
 test -d mnt || mkdir mnt
 mount -o loop ${IMAGE_PATH} mnt
