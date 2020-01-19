@@ -22,7 +22,7 @@ mount -o loop ${IMAGE_PATH} mnt
 # set up in rootfs
 cd mnt
 cp -r ../../_install/* .
-mkdir -p root bin dev lib lib/modules proc sbin sys tmp usr usr/bin usr/sbin var/run var/log var/tmp etc
+mkdir -p bin dev lib lib/modules proc sbin sys tmp usr usr/bin usr/sbin var/run var/log var/tmp etc
 ls
 cp ../../busybox bin/
 rsync -a --exclude ldscripts --exclude '*.la' --exclude '*.a' ${RISCV}/sysroot/lib/ lib/
