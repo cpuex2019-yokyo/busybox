@@ -40,13 +40,8 @@ mknod dev/console c 5 1
 mknod dev/ttyS0 c 4 64
 mknod dev/null c 1 3
 
-find . -print0 | cpio --null -ov --format=newc \
-    | gzip -9 > ../../../build/initramfs.cpio.gz
-
 cd ..
 
 # finalize
-sleep 1
 umount mnt
-sleep 1
 rmdir mnt
