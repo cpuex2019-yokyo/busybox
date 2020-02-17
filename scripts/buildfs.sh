@@ -33,13 +33,14 @@ sed -i'' "s:\*:${hash}:" etc/shadow
 chmod 600 etc/shadow
 
 #ln -s ../bin/busybox sbin/init
-#ln -s busybox bin/sh
+ln -s bin/busybox init
 cp ../templates/bin/ldd bin/ldd
 
 mknod dev/console c 5 1
 mknod dev/ttyS0 c 4 64
 mknod dev/null c 1 3
 
+find . | cpio -o -H newc | gzip > ../../initramfs.cpio.gz
 cd ..
 
 # finalize

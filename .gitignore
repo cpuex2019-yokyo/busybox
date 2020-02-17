@@ -63,3 +63,4 @@ TAGS
 /embed
 _install
 rootfs.img
+initramfs.cpio.gz
