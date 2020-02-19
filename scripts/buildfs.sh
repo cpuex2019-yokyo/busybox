@@ -28,9 +28,14 @@ cp ../../busybox bin/
 cp -r ../templates/etc/* etc/
 ln -s bin/busybox init
 cp ../templates/bin/ldd bin/ldd
-rsync -a --exclude ldscripts --exclude '*.la' --exclude '*.a' ${RISCV}/sysroot/lib/ lib/
-#cp ${RISCV}/sysroot/lib/libc.so.6 lib/libc.so.6
-rm lib/libnss*
+#rsync -a --exclude ldscripts --exclude '*.la' --exclude '*.a' ${RISCV}/sysroot/lib/ lib/
+cp ${RISCV}/sysroot/lib/ld-linux-riscv32-ilp32.so.1 lib/
+cp ${RISCV}/sysroot/lib/libc.so.6 lib/
+cp ${RISCV}/sysroot/lib/libm.so.6 lib/
+ls -lha lib
+
+#rm lib/libnss*
+#rm lib/libgfortran*
 
 # set passwd
 hash=$(openssl passwd -1 -salt xyzzy ${ROOT_PASSWORD})
